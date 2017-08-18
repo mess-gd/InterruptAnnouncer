@@ -1,0 +1,8 @@
+## Interface: 5875
+## Title: InterruptAnnouncer
+## Title-deDE: Unterbrechungs
+## Notes: Announces your interupts in chat.
+## SavedVariables: INTANN_Settings
+InterruptAnnouncer.xml
+InterruptAnnouncer.lua
+Classes.lua
