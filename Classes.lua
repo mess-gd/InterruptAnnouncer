@@ -1,89 +1,104 @@
 -------------------------------------------------
+-- Prototype
+-------------------------------------------------
+
+local ClazzPrototype = {}
+
+ClazzPrototype.HasInterrupt = false
+
+ClazzPrototype.EventType = nil
+
+ClazzPrototype.InterruptNames = nil
+
+ClazzPrototype.ResistAnnouncementText = ""
+
+ClazzPrototype.HitAnnouncementText = ""
+
+-------------------------------------------------
 -- Warrior
 -------------------------------------------------
 
-INTANN.Clazz.WARRIOR = {}
+local Warrior = setmetatable({}, {__index = ClazzPrototype})
 
-INTANN.Clazz.WARRIOR.HasInterrupt = true
+Warrior.HasInterrupt = true
 
-INTANN.Clazz.WARRIOR.EventType = "CHAT_MSG_SPELL_SELF_DAMAGE"
+Warrior.EventType = "CHAT_MSG_SPELL_SELF_DAMAGE"
 
-INTANN.Clazz.WARRIOR.InterruptNames = {"Pummel", "Shield Bash"}
+Warrior.InterruptNames = {"Pummel", "Shield Bash"}
+
+Warrior.ResistAnnouncementText = "Kick - RESIST"
+
+Warrior.HitAnnouncementText = "Kick"
 
 -------------------------------------------------
 -- Paladin
 -------------------------------------------------
 
-INTANN.Clazz.PALADIN = {}
+local Paladin = setmetatable({}, {__index = ClazzPrototype})
 
 --- for testing purposes with paladin: set to true, which is also why the two properties below this one have non-nil values
-INTANN.Clazz.PALADIN.HasInterrupt = false
+Paladin.HasInterrupt = true
 
-INTANN.Clazz.PALADIN.EventType = "CHAT_MSG_SPELL_SELF_DAMAGE"
+Paladin.EventType = "CHAT_MSG_SPELL_SELF_DAMAGE"
 
-INTANN.Clazz.PALADIN.InterruptNames = {"Judgement"}
+Paladin.InterruptNames = {"Judgement"}
+
+Paladin.ResistAnnouncementText = "Judgement - RESIST"
+
+Paladin.HitAnnouncementText = "Judgement"
 
 -------------------------------------------------
 -- Shaman
 -------------------------------------------------
 
-INTANN.Clazz.SHAMAN = {}
-
--- interrupt is part of the damage rotation here, prolly we wanna avoid announcing these ?
-INTANN.Clazz.SHAMAN.HasInterrupt = false  
+local Shaman = setmetatable({}, {__index = ClazzPrototype})
 
 -------------------------------------------------
 -- Hunter
 -------------------------------------------------
 
-INTANN.Clazz.HUNTER = {}
-
-INTANN.Clazz.HUNTER.HasInterrupt = false  
+local Hunter = setmetatable({}, {__index = ClazzPrototype})
 
 -------------------------------------------------
 -- Rogue
 -------------------------------------------------
 
-INTANN.Clazz.ROGUE = {}
+local Rogue = setmetatable({}, {__index = ClazzPrototype})
 
-INTANN.Clazz.ROGUE.HasInterrupt = true
+Rogue.HasInterrupt = true
 
-INTANN.Clazz.ROGUE.EventType = "CHAT_MSG_SPELL_SELF_DAMAGE"
+Rogue.EventType = "CHAT_MSG_SPELL_SELF_DAMAGE"
 
-INTANN.Clazz.ROGUE.InterruptNames = {"Kick"} 
+Rogue.InterruptNames = {"Kick"}
+
+Rogue.ResistAnnouncementText = "Kick - RESIST"
+
+Warrior.HitAnnouncementText = "Kick"
 
 -------------------------------------------------
 -- Druid
 -------------------------------------------------
 
-INTANN.Clazz.DRUID = {}
-
-INTANN.Clazz.DRUID.HasInterrupt = false  
+local Druid = setmetatable({}, {__index = ClazzPrototype})
 
 -------------------------------------------------
 -- Priest
 -------------------------------------------------
 
-INTANN.Clazz.PRIEST = {}
-
-INTANN.Clazz.PRIEST.HasInterrupt = false  
+local Priest = setmetatable({}, {__index = ClazzPrototype})
 
 -------------------------------------------------
 -- Mage
 -------------------------------------------------
 
-INTANN.Clazz.MAGE = {}
+local Mage = setmetatable({}, {__index = ClazzPrototype})
 
-INTANN.Clazz.MAGE.HasInterrupt = false
-
--- which event types fire when counterspell / spell lock hits? 
+-- which event types fire when counterspell / spell lock hits?
 
 -------------------------------------------------
 -- Warlock
 -------------------------------------------------
 
-INTANN.Clazz.WARLOCK = {}
+local Warlock = setmetatable({}, {__index = ClazzPrototype})
 
-INTANN.Clazz.WARLOCK.HasInterrupt = false
-
--- which event types fire when counterspell / spell lock hits? 
+-- which event types fire when counterspell / spell lock hits?
