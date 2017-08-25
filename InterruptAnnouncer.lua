@@ -20,6 +20,14 @@ INTANN.Clazz = {}
 
 INTANN.channel = "SAY"
 
+INTANN.LeftDelimiter = ">> "
+
+INTANN.RightDelimiter = " <<"
+
+INTANN.ResistAnnouncement = INTANN.LeftDelimiter.."Kick - Resist"
+
+INTANN.HitAnnouncement = INTANN.LeftDelimiter.."Kick"
+
 INTANN.RaidSymbolNames = {}
 
 INTANN.RaidSymbolNames.German = {
@@ -193,9 +201,9 @@ function INTANN.EventHandlingPrototypes.HandleDamagingInterrupt(arg1)
 			-- determine whether to display a success message or a miss message
 			local success = string.find(arg1, "hit") or string.find(arg1, "crit") or string.find(arg1, "absorb") -- did it hit?
 			if not success then -- supposedly missed, parried or dodged
-				SendChatMessage(">> Kick - Resist" .. raidtargettext .. " <<", INTANN.channel)
+				SendChatMessage(INTANN.ResistAnnouncement .. raidtargettext .. INTANN.RightDelimiter, INTANN.channel)
 			else -- successfully hit
-				SendChatMessage(">> Kick" .. raidtargettext .. " << ", INTANN.channel)
+				SendChatMessage(INTANN.HitAnnouncement .. raidtargettext .. INTANN.RightDelimiter, INTANN.channel)
 			end
 		end
 	end
