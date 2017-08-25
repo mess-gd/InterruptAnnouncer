@@ -102,3 +102,26 @@ local Mage = setmetatable({}, {__index = ClazzPrototype})
 local Warlock = setmetatable({}, {__index = ClazzPrototype})
 
 -- which event types fire when counterspell / spell lock hits?
+
+--------------------------------------------------
+-- Hook Clazz to global namespace
+--------------------------------------------------
+
+local Clazzes = {
+    ["WARRIOR"] = Warrior,
+    ["PALADIN"] = Paladin,
+    ["SHAMAN"] = Shaman,
+    ["HUNTER"] = Hunter,
+    ["ROGUE"] = Rogue,
+    ["DRUID"] = Druid,
+    ["PRIEST"] = Priest,
+    ["MAGE"] = Mage,
+    ["WARLOCK"] = Warlock
+}
+
+local hookClazz = function()
+    local _, englishClazz = UnitClass("player")
+    INTANN.Player.Clazz = Clazzes[englishClazz]
+end
+
+hookClazz()

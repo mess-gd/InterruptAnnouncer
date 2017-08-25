@@ -12,8 +12,6 @@ INTANN.Version = {
     ["MINOR"] = 1
 }
 
-INTANN.Clazz = {}
-
 -------------------------------------------------
 -- Constants
 -------------------------------------------------
@@ -62,22 +60,12 @@ INTANN.RaidSymbolNames.English = {
 
 INTANN.Player = {}
 
-INTANN.Player.IsActive = nil
+INTANN.Player.Settings = {}
 
-INTANN.Player.Language = nil
+INTANN.Player.Clazz = {}
 
-INTANN.Player.HasInterrupt = false
-
-INTANN.Player.EventType = nil
-
-INTANN.Player.InterruptNames = nil
-
-function INTANN.Player.LoadPlayerProperties()
-	local _, englishClazz = UnitClass("player")
-	INTANN.Player.HasInterrupt = INTANN.Clazz[englishClazz].HasInterrupt
-	INTANN.Player.EventType = INTANN.Clazz[englishClazz].EventType
-	INTANN.Player.InterruptNames = INTANN.Clazz[englishClazz].InterruptNames
-	
+function INTANN.Player.LoadSettings()
+	-- Refactor: Use SavedVarsPerCharacter
 	local playerName = UnitName("player")
 	local realmName = GetRealmName()
 	if INTANN_Settings[playerName.."@"..realmName] then
